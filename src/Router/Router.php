@@ -13,14 +13,14 @@ class Router implements Routable {
 	];
 
 	function run() {
-		$strModule = isset( $_GET['module'] ) ? $_GET['module'] : 'default';
+		$strModule = isset( $_GET['module'] ) ? $_GET['module'] : 'employee';
 
 		if( isset( $this->routes[$strModule] ) ) {
 			$objController = new $this->routes[$strModule];
 
 			if( is_a( $objController, Application::class ) ) {
 				$objController->initialize();
-				$objController->execute();
+				echo $objController->execute();
 				$objController->finalize();
 			} else {
 				throw  new \Exception( "It must implement Application interface" );

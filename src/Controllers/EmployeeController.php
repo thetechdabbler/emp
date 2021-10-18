@@ -3,19 +3,21 @@
 namespace App\Controllers;
 
 use App\Interfaces\Application;
+use App\Libraries\DisplayEngine;
 
 class EmployeeController implements Application {
 
 	public function initialize() {
-		echo "Hey initialized\n";
+
 
 	}
 
 	public function execute() {
-		echo "Hey executed\n";
+		return DisplayEngine::render( 'index.html', [ 'name' => 'Rohit', 'designation' => 'Sr. Engg.' ] );
+
 	}
 
 	public function finalize() {
-		echo "Hey finalized\n";
+
 	}
 }
